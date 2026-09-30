@@ -1,0 +1,100 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Inner Laboratory</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>The Inner Laboratory</h1>
+
+    <p>
+        A small offline space for exploring strange questions.
+    </p>
+
+    <hr>
+
+  <h2>Question of the Day</h2>
+
+<div class="question-box">
+
+    <p id="question">
+        Who are you when you stop trying to become someone?
+    </p>
+
+    <button onclick="newQuestion()">Another question</button>
+
+</div>
+
+<p id="reflection"></p>
+
+    <hr>
+
+    <h2>Ideas to Explore</h2>
+
+    <ul>
+        <li>Awareness and thought</li>
+        <li>The construction of identity</li>
+        <li>Ego and freedom</li>
+        <li>Perception and reality</li>
+        <li>Creativity and meaningful work</li>
+        <li>Technology and consciousness</li>
+    </ul>
+
+    <h2>My Thought</h2>
+
+    <textarea id="thought" rows="8" cols="50"
+        placeholder="Write whatever comes to mind..."></textarea>
+
+    <br><br>
+
+    <button onclick="saveThought()">Save thought</button>
+
+    <p id="message"></p>
+
+    <script>
+    const questions = [
+        "Who are you when you stop trying to become someone?",
+        "Is a thought something you are, or something you experience?",
+        "What happens when you observe a feeling without trying to change it?",
+        "How much of your identity was chosen by you?",
+        "Can technology become an extension of human creativity?",
+        "What would you build if you stopped waiting to feel ready?",
+        "Is freedom about changing your circumstances, or changing your relationship with them?"
+    ];
+
+    function newQuestion() {
+        const random = Math.floor(Math.random() * questions.length);
+
+        document.getElementById("question").textContent = questions[random];
+
+        document.getElementById("reflection").textContent =
+            "Don't rush to answer. Notice what happens before the answer appears.";
+    }
+</script>
+
+        }
+
+        function saveThought() {
+            const thought = document.getElementById("thought").value;
+
+            if (thought.trim() === "") {
+                document.getElementById("message").textContent =
+                    "Write something first.";
+                return;
+            }
+
+            localStorage.setItem("myThought", thought);
+
+            document.getElementById("message").textContent =
+                "Your thought is saved on this device.";
+}
+        }
+    </script>
+
+</body>
+</html>
+
